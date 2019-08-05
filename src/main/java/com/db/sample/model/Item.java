@@ -1,14 +1,16 @@
 package com.db.sample.model;
 
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 
 public class Item {
+
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     Long itemId;
+
+    @ManyToOne
+    Long cartId;
 
     int quantity;
     String description;

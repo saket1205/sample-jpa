@@ -1,20 +1,29 @@
 package com.db.sample.model;
 
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.OneToMany;
 import java.util.List;
 
 public class Cart {
-    int cartId;
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    Long cartId;
+
+    @OneToMany
     List<Item> items;
 
-    public Cart(int cartId) {
+    public Cart(Long cartId) {
         this.cartId = cartId;
     }
 
-    public void setCartId(int cartId) {
+    public void setCartId(Long cartId) {
         this.cartId = cartId;
     }
 
-    public int getCartId() {
+    public Long getCartId() {
         return cartId;
     }
 
